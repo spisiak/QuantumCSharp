@@ -14,8 +14,8 @@ namespace QuantumCSharpTest
         {
             QuantumProgram program = new QuantumProgram(new QuantumProgramOption()
             {
-                Email = "",
-                Password = "",
+                Email = "", // put your email
+                Password = "", // put your password
                 Device = IbmQXDevices.ibmqx4,
             });
             program.AddLog(PrintLog);
