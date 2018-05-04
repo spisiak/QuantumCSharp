@@ -5,11 +5,12 @@ using System.Text;
 
 namespace QuantumCSharp
 {
-    public class Qubit
+    public class Qubit : IQubit
     {
         private QuantumProgram Program;
-        
-        public int QubitIndex { get; private set; }
+        public int QubitIndex { get; set; }
+
+
 
         public Qubit(QuantumProgram program,int QubitIndex)
         {
@@ -61,7 +62,6 @@ namespace QuantumCSharp
         /// </summary>
         public void Barrier()
         {
-            this.
             if (Program != null)
                 Program.Commands.Add(new Barrier(this));
         }
@@ -69,7 +69,7 @@ namespace QuantumCSharp
         /// <summary>Controlled-NOT
         /// <para>THe first parameter is a control qubit</para>
         /// </summary>
-        public void CNOT(Qubit ControlQubit)
+        public void CNOT(IQubit ControlQubit)
         {
             if (Program != null)
                 Program.Commands.Add(new ControlledNOT(this.QubitIndex, ControlQubit.QubitIndex,Program.Options.Device));
